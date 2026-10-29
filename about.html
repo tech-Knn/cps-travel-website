@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – TripsyTravel</title>
+  <meta name="description" content="Meet the team behind TripsyTravel — a group of obsessive travelers who write honest, practical guides from personal experience." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <style>
+    /* ── HERO ── */
+    .about-hero {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+      background: var(--secondary);
+    }
+    .about-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.35;
+    }
+    .about-hero-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center;
+      background: linear-gradient(to right, rgba(0,30,50,0.85) 50%, transparent 100%);
+    }
+    .about-hero-content { color: white; max-width: 620px; }
+    .about-hero-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .about-hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px; font-weight: 800;
+      line-height: 1.15; margin-bottom: 18px;
+    }
+    .about-hero-content p {
+      font-size: 17px; color: rgba(255,255,255,0.82);
+      line-height: 1.75; margin-bottom: 28px;
+    }
+    .about-hero-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 800;
+      color: var(--accent-light); line-height: 1;
+    }
+    .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      background: var(--bg-alt);
+      padding: 12px 0;
+      font-size: 13px; color: var(--gray);
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .breadcrumb .container { display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { color: var(--light-gray); }
+
+    /* ── OUR STORY ── */
+    .story-section { padding: 80px 0; }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .story-img-wrap {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .story-img-wrap img { width: 100%; height: 420px; object-fit: cover; }
+    .story-badge-float {
+      position: absolute; bottom: 24px; left: 24px;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .story-badge-float-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 800;
+      color: var(--primary); line-height: 1;
+    }
+    .story-badge-float-label { font-size: 12px; color: var(--gray); line-height: 1.4; }
+    .story-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px; font-weight: 800;
+      color: var(--dark); margin-bottom: 20px; line-height: 1.2;
+    }
+    .story-content h2 span { color: var(--primary); }
+    .story-content p {
+      font-size: 15.5px; color: var(--gray);
+      line-height: 1.85; margin-bottom: 18px;
+    }
+    .story-quote {
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      background: var(--bg-alt);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 24px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-style: italic;
+      color: var(--secondary); line-height: 1.65;
+    }
+
+    /* ── VALUES ── */
+    .values-section { padding: 72px 0; background: var(--secondary); color: var(--white); }
+    .values-section .section-title { color: var(--white); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: all var(--transition);
+    }
+    .value-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .value-icon {
+      width: 52px; height: 52px;
+      background: rgba(232,68,10,0.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      color: var(--accent-light);
+    }
+    .value-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 10px; color: var(--white);
+    }
+    .value-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+    /* ── TEAM ── */
+    .team-section { padding: 80px 0; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 44px;
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all var(--transition);
+      text-align: center;
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--card-shadow-hover); }
+    .team-img-wrap { position: relative; overflow: hidden; height: 240px; }
+    .team-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .team-card:hover .team-img-wrap img { transform: scale(1.06); }
+    .team-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,30,50,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 16px; gap: 10px;
+    }
+    .team-card:hover .team-overlay { opacity: 1; }
+    .team-social-btn {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--secondary);
+      transition: all var(--transition);
+    }
+    .team-social-btn:hover { background: var(--primary); color: white; }
+    .team-body { padding: 22px 18px 24px; }
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--dark); margin-bottom: 4px;
+    }
+    .team-role {
+      font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--primary); margin-bottom: 12px;
+    }
+    .team-bio { font-size: 13.5px; color: var(--gray); line-height: 1.65; margin-bottom: 14px; }
+    .team-countries {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg-alt);
+      border-radius: 20px; padding: 5px 12px;
+      font-size: 12px; font-weight: 600; color: var(--secondary);
+    }
+
+    /* ── MILESTONES ── */
+    .milestones-section { padding: 72px 0; background: var(--bg-alt); }
+    .milestone-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .milestone-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      border-top: 4px solid var(--primary);
+    }
+    .milestone-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px; font-weight: 800;
+      color: var(--primary); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .milestone-label { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+    .milestone-desc { font-size: 12.5px; color: var(--gray); line-height: 1.5; }
+
+    /* ── PRESS ── */
+    .press-section { padding: 64px 0; }
+    .press-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap; margin-top: 36px;
+    }
+    .press-logo {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 16px 28px;
+      box-shadow: var(--card-shadow);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--gray);
+      transition: all var(--transition);
+    }
+    .press-logo:hover { color: var(--primary); transform: translateY(-2px); }
+    .press-tagline { text-align: center; font-size: 14px; color: var(--gray); margin-top: 20px; }
+
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-img-wrap { height: auto; }
+      .story-img-wrap img { height: 280px; }
+      .about-hero-content h1 { font-size: 32px; }
+      .about-hero { height: 400px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .milestone-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .milestone-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <a href="#">FAQ</a>
+      <a href="about.html">Our Team</a>
+      <a href="#">Gallery</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="top-bar-right">
+      <span>Follow Us:</span>
+      <a href="#" class="social-icon"><svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" class="social-icon"><svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+      <a href="#" class="social-icon"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="23" fill="#E8440A"/><path d="M10 23 L38 14 L32 23 L38 32 Z" fill="white" opacity="0.95"/><circle cx="27" cy="21" r="2" fill="#E8440A"/><path d="M10 23 L20 26 L18 31 Z" fill="white" opacity="0.7"/><path d="M14 35 Q23 30 32 35" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/><circle cx="8" cy="14" r="1.2" fill="#FFD166"/></svg>
+        <div class="logo-text">
+          <div class="logo-name"><span>Tripsy</span><span>Travel</span></div>
+          <div class="logo-tagline">Wander More, Worry Less</div>
+        </div>
+      </a>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Places</a></li>
+          <li><a href="#">Food &amp; Culture</a></li>
+          <li><a href="#">Stories</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li class="nav-cta"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="document.getElementById('nav-list').classList.toggle('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">Home</a><span>›</span><span>About Us</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="about-hero">
+  <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80" alt="TripsyTravel team travels" />
+  <div class="about-hero-overlay">
+    <div class="container">
+      <div class="about-hero-content">
+        <div class="about-hero-badge">Our Story</div>
+        <h1>Travel Writers<br>Who Actually Travel</h1>
+        <p>TripsyTravel was born from a simple idea: the best travel advice comes from people who have slept in the airport, eaten the street food, and taken the wrong bus — and loved every minute of it.</p>
+        <div class="about-hero-stats">
+          <div>
+            <div class="hero-stat-num">214+</div>
+            <div class="hero-stat-label">Destinations Covered</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">520+</div>
+            <div class="hero-stat-label">Articles Published</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">18K</div>
+            <div class="hero-stat-label">Newsletter Subscribers</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">4.9★</div>
+            <div class="hero-stat-label">Reader Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img-wrap">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Travel adventure" />
+        <div class="story-badge-float">
+          <div class="story-badge-float-num">2019</div>
+          <div class="story-badge-float-label">Founded by<br>four travelers</div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2>We Started with a <span>Single Blog Post</span> and a Big Backpack</h2>
+        <p>TripsyTravel started in 2019 when four friends — a data analyst, a food writer, a long-distance hiker, and a budget travel obsessive — kept sending each other the same message: "The travel guides online are useless. None of these people have actually been there."</p>
+        <p>So we made our own. The first post was about eating in Bangkok on $10 a day. It got 200 reads in its first week, which felt enormous at the time. Then 2,000. Then it went viral on Pinterest and our server crashed. We figured we might be onto something.</p>
+        <div class="story-quote">
+          "We don't write about places we haven't been. We don't recommend restaurants we haven't eaten at. We don't give budgets we haven't actually tested. That's it. That's the whole policy."
+        </div>
+        <p>Seven years later, TripsyTravel reaches over 2 million readers a year. The team has grown from four to twelve contributors across six countries. But the rule hasn't changed: every article is written from personal experience. No AI-generated filler. No PR junkets that aren't disclosed. No "Top 10 Places in X" written from a desk in a country we've never visited.</p>
+        <a href="blogs.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:8px;">
+          Read Our Stories
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:0;">
+      <h2 class="section-title">What We Believe</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Honest First</h3>
+        <p>We say when somewhere is overrated, when a "must-see" isn't worth the queue, and when the Instagram photo doesn't match reality. Our readers trust us because we trust them with the truth.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Written by Real Travelers</h3>
+        <p>Every article is written by someone who has been there — not aggregated, not AI-assisted, not outsourced. We believe the best travel writing comes from genuine curiosity and first-hand experience.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Travel for Everyone</h3>
+        <p>We cover backpacker budgets and boutique hotels alike. Travel shouldn't be reserved for the wealthy. Most of our most beloved articles are about doing extraordinary things on ordinary budgets.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Respect for Local Culture</h3>
+        <p>We write about places as they are, not how tourists wish they were. We credit local knowledge, encourage respectful travel, and push back against the kind of overtourism that destroys the things we love.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <h3>Transparent About Money</h3>
+        <p>We disclose every affiliate relationship, every sponsored trip, every partnership. Our editorial opinions are never for sale. If we say something is good, it's because we genuinely think so.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>Global Perspectives</h3>
+        <p>Our team travels from and to every corner of the world. We deliberately seek out writers from the places they write about, because the best guide to Marrakech is written by someone who grew up knowing it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Meet the Team</h2>
+      <a href="contact.html" class="see-all">Work With Us ›</a>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://i.pravatar.cc/400?img=11" alt="Sarah Lin" loading="lazy" />
+          <div class="team-overlay">
+            <a href="#" class="team-social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" class="team-social-btn" title="Twitter"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Sarah Lin</div>
+          <div class="team-role">Lead Writer · Asia & Pacific</div>
+          <p class="team-bio">Sarah has visited 43 countries across six continents and has a particular obsession with Southeast Asia. She specialises in destination guides, cultural deep-dives, and seasonal travel.</p>
+          <div class="team-countries">✈ 43 countries</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://i.pravatar.cc/400?img=5" alt="Raj Mehta" loading="lazy" />
+          <div class="team-overlay">
+            <a href="#" class="team-social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" class="team-social-btn" title="Twitter"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Raj Mehta</div>
+          <div class="team-role">Budget Travel Editor</div>
+          <p class="team-bio">Raj has traveled 55 countries on a budget and refuses to pay more than $5 for a beer. He writes about making travel accessible and covers flights, accommodation hacks, and budget itineraries.</p>
+          <div class="team-countries">✈ 55 countries</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://i.pravatar.cc/400?img=29" alt="Emma Torres" loading="lazy" />
+          <div class="team-overlay">
+            <a href="#" class="team-social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" class="team-social-btn" title="Twitter"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Emma Torres</div>
+          <div class="team-role">Food &amp; Culture Editor</div>
+          <p class="team-bio">Emma is a food-first traveler who plans entire itineraries around what she wants to eat. She's eaten street food in 29 countries and writes about food culture from the ground up.</p>
+          <div class="team-countries">✈ 38 countries</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://i.pravatar.cc/400?img=33" alt="Marco Diaz" loading="lazy" />
+          <div class="team-overlay">
+            <a href="#" class="team-social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" class="team-social-btn" title="Twitter"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Marco Diaz</div>
+          <div class="team-role">Adventure &amp; Hiking Writer</div>
+          <p class="team-bio">Marco is a long-distance hiker and travel writer specialising in remote destinations. He has completed the Appalachian Trail, Tour du Mont Blanc, and the Torres del Paine O Circuit.</p>
+          <div class="team-countries">✈ 31 countries</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONES -->
+<section class="milestones-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">TripsyTravel by the Numbers</h2>
+    </div>
+    <div class="milestone-grid">
+      <div class="milestone-card">
+        <div class="milestone-num">214+</div>
+        <div class="milestone-label">Destinations Covered</div>
+        <div class="milestone-desc">Across every continent, from capital cities to villages with no tourist infrastructure</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-num">2M+</div>
+        <div class="milestone-label">Annual Readers</div>
+        <div class="milestone-desc">Travel enthusiasts from 180+ countries read TripsyTravel every year</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-num">520+</div>
+        <div class="milestone-label">Articles Published</div>
+        <div class="milestone-desc">Every one written from first-hand experience, none outsourced or AI-generated</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-num">18K+</div>
+        <div class="milestone-label">Newsletter Subscribers</div>
+        <div class="milestone-desc">Weekly travel guides delivered to inboxes every Friday morning since 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press-section">
+  <div class="container">
+    <div class="section-header" style="justify-content:center;text-align:center;">
+      <h2 class="section-title">As Featured In</h2>
+    </div>
+    <div class="press-logos">
+      <div class="press-logo">Lonely Planet</div>
+      <div class="press-logo">Condé Nast Traveller</div>
+      <div class="press-logo">Monocle</div>
+      <div class="press-logo">Travel + Leisure</div>
+      <div class="press-logo">The Guardian Travel</div>
+      <div class="press-logo">Nomadic Matt</div>
+    </div>
+    <p class="press-tagline">For press enquiries, contact <a href="mailto:press@tripsytravel.info" style="color:var(--primary);">press@tripsytravel.info</a></p>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section style="background:linear-gradient(135deg,var(--primary),#FF6B35);padding:64px 0;text-align:center;color:white;">
+  <div class="container">
+    <h2 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;margin-bottom:14px;">Ready to Plan Your Next Adventure?</h2>
+    <p style="font-size:16px;opacity:0.9;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;">Browse our 520+ travel guides or get in touch — we're always happy to point you in the right direction.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="blogs.html" style="background:white;color:var(--primary);padding:13px 28px;border-radius:30px;font-weight:700;font-size:14px;transition:all 0.3s;">Browse All Guides ›</a>
+      <a href="contact.html" style="background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.5);padding:13px 28px;border-radius:30px;font-weight:700;font-size:14px;transition:all 0.3s;">Get in Touch ›</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="container">
+    <h2>Never Miss a Travel Story</h2>
+    <p>Join over 18,000 curious wanderers who get the best travel guides, tips &amp; deals every week.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Enter your email address…" />
+      <button type="submit">Subscribe Free ✈</button>
+    </form>
+    <p style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:12px;">No spam. Unsubscribe at any time.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom:14px;display:inline-flex;">
+          <svg class="logo-icon" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="23" fill="#E8440A"/><path d="M10 23 L38 14 L32 23 L38 32 Z" fill="white" opacity="0.95"/><circle cx="27" cy="21" r="2" fill="#E8440A"/><circle cx="8" cy="14" r="1.2" fill="#FFD166"/></svg>
+          <div class="logo-text"><div class="logo-name"><span>Tripsy</span><span>Travel</span></div><div class="logo-tagline">Wander More, Worry Less</div></div>
+        </a>
+        <p class="footer-desc">TripsyTravel — honest, first-hand travel stories and practical guides from every corner of the globe. Let's explore together.</p>
+      </div>
+      <div><div class="footer-heading">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="blogs.html">All Blogs</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Write for Us</a></li></ul></div>
+      <div><div class="footer-heading">Categories</div><ul class="footer-links"><li><a href="#">Places &amp; Destinations</a></li><li><a href="#">Food &amp; Culture</a></li><li><a href="#">Travel Stories</a></li><li><a href="#">Tips &amp; Tricks</a></li><li><a href="#">Adventure</a></li></ul></div>
+      <div><div class="footer-heading">Gallery</div><div class="footer-gallery"><div class="footer-gallery-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=150&q=65" alt="" loading="lazy"/></div><div class="footer-gallery-item"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=150&q=65" alt="" loading="lazy"/></div><div class="footer-gallery-item"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=150&q=65" alt="" loading="lazy"/></div><div class="footer-gallery-item"><img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=150&q=65" alt="" loading="lazy"/></div><div class="footer-gallery-item"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=150&q=65" alt="" loading="lazy"/></div><div class="footer-gallery-item"><img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=150&q=65" alt="" loading="lazy"/></div></div></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TripsyTravel · tripsytravel.info · All rights reserved.</span>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</div>
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
+</body>
+</html>
